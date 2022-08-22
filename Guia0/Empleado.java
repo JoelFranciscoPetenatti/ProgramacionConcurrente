@@ -10,5 +10,44 @@ public class Empleado extends Persona {
     public Empleado(String legajo){       
         this.legajo=legajo;
     }
-    
+
+    public String getLegajo() {
+        return legajo;
+    }
+
+    protected void setLegajo(String legajo) {
+        this.legajo = legajo;
+    }
+
+    public int getAntiguedad() {
+        return antiguedad;
+    }
+
+    public void setAntiguedad(int antiguedad) {
+        this.antiguedad = antiguedad;
+    }
+
+    protected int getPorc_antiguedad() {
+        return porc_antiguedad;
+    }
+
+    protected void setPorc_antiguedad(int porc_antiguedad) {
+        this.porc_antiguedad = porc_antiguedad;
+    }
+
+    protected String getFuncion() {
+        return funcion;
+    }
+
+    protected void setFuncion(String funcion) {
+        this.funcion = funcion;
+    }
+
+    protected int getSalario() {
+        return salario;
+    }
+
+    protected void setSalario(int salario) {
+        this.salario = salario;
+    }
 }
