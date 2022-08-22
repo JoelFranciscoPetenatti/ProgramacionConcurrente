@@ -7,8 +7,8 @@ public class Empleado extends Persona {
     protected String funcion;
     protected int salario;
 
-    public Empleado(String legajo){       
-        this.legajo=legajo;
+    public Empleado(String legajo) {
+        this.legajo = legajo;
     }
 
     public String getLegajo() {
@@ -49,5 +49,10 @@ public class Empleado extends Persona {
 
     protected void setSalario(int salario) {
         this.salario = salario;
+    }
+
+    /* Polimorfismo por reemplazo del metodo toString de la superclase */
+    public String toString() {
+        return "Legajo: " + this.legajo.toString() + ", Antiguedad: " + this.antiguedad + " \n";
     }
 }
