@@ -58,4 +58,9 @@ public class Persona {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    @Override
+    public String toString() {
+        return nombre.toString() + " " + apellido.toString() + " " + dni.toString();
+    }
 }
