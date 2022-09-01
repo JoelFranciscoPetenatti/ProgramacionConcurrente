@@ -1,5 +1,7 @@
 package Excepciones;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -63,8 +65,9 @@ public class CreandoExcepciones {
             throw new ExcepcionEdad("Es menor de edad");
         }
     }
-    /*Metodo que recibe un numero de la rulet y dispara una excepcion
-     * si no sale dicho numero
+    
+    /*Metodo que recibe un numero de la ruleta y dispara una excepcion
+     * si no sale dicho numero.
      */
 
      public static void ruleta(){
@@ -90,8 +93,68 @@ public class CreandoExcepciones {
             throw new ExcepcionRuleta("El numero ganador es: <" + aleatorio + ">.Lo siento, su numero no ha salido");
         }
     }
-    
 
+/*Creamos un metodo que permite ingresar 5 numeros a una coleccion
+ * y trata de mostrar 7 valores de la misma
+ */
+
+public static void coleccion_Numeros() {
+    List<Integer> coleccion = new LinkedList<Integer>();
+    Scanner sc = new Scanner(System.in);
+    int num;
+    System.out.println("Ingrese 1er numero");
+    num = sc.nextInt();
+    coleccion.add(num);
+    System.out.println("Ingrese 2do numero");
+    num = sc.nextInt();
+    coleccion.add(num);
+    System.out.println("Ingrese 3er numero");
+    num = sc.nextInt();
+    coleccion.add(num);
+    System.out.println("Ingrese 4to numero");
+    num = sc.nextInt();
+    coleccion.add(num);
+    System.out.println("Ingrese 5to numero");
+    num = sc.nextInt();
+    coleccion.add(num);
+    mostrarColeccion(coleccion);
+}
+
+public static void mostrarColeccion(List<Integer> coleccion) {
+    try {
+        for (int i = 0; i < coleccion.size(); i++) {
+            verficarPosicion(i, coleccion);
+        }
+    } catch (ExcepcionColeccion e) {
+        e.printStackTrace();
+    }
+}
+
+public static void verficarPosicion(int i, List<Integer> coleccion) {
+    if (i < coleccion.size()) {
+        System.out.println("num: " + coleccion.get(i));
+    } else {
+        throw new ExcepcionColeccion();
+    }
+}
+
+/*Creacion del main para testear los modulos que creamos */
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    //menor_deEdad(18);
+    String respuesta = "si";
+
+    /*
+     * while (respuesta.equals("si")) {
+     * ruleta();
+     * System.out.println("Desea seguir jugando?");
+     * respuesta = sc.nextLine();
+     * 
+     * }
+     */
+
+    //coleccion_Numeros(); 
+}
 
 
 }
