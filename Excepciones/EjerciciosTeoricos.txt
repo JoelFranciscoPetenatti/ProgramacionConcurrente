@@ -1,0 +1,51 @@
+Ejercicio 6 de la guia de excepciones
+
+En primer lugar no deberia haber un throw y un catch ya que estariamos lanzando el error y luego agarrandolo 
+para volver a lanzarlo.
+Deberiamos tener 
+
+Ejercicio 7 de la guia de excepciones
+a) El metodo "metodo()" devuelve 44 en la variable valor al final del try, 45 al final del finally (ya que entra si o si)
+ y por ultimo devuelve 46 antes del retorno. Luego en el main mostramos por pantalla 46 que es el valor que retorna metodo().
+
+b) El metodo "metodo()" devuelve 43 en la variable valor al final del catch (ya que falla el try en la segunda linea Integer.parseInt("W")),
+44 al final del finally y por ultimo devuelve 45 antes del retorno. Luego en el main mostramos por pantalla 45
+
+c) El metodo "metodo()" devuelve 2 dentro del finally, ya que asigna + 1 la primer linea del try, luego falla y entra al catch y vuelve a fallar, entrando 
+al finally donde suma 1 y muestra el valor 2, pero sin ejecutar nada mas por debajo ya que una vez que falla el catch todo el resto de codigo por debajo
+de este, a exepcion del finally, no se ejecuta. Luego en el main falla en el try, entra en el catch imprime "Excepcion en metodo()" y muestra la pila de
+los errores
+
+d) El metodo "metodo()" devuelve 2 dentro del finally, ya que asigna + 1 la primer linea del try, luego entra al catch (ignorando el throw new IOException ya que esta se encuentra 
+por debajo del error en la linea Integer.parseInT("W") y como el catch solo se ejecuta si hay una IOException sale y entra si o si al finally). Luego en el main 
+falla el try, entra en el catch imprime "Excepcion en metodo()" y muestra la pila de los errores
+
+Ejercicio 8 de la guia de excepciones
+
+a) Logramos crear una excepcion para el metodo menor_deEdad, el cual lanza la excepcion si la edad ingresa es < 18
+
+b) Logramos crear una excepcion para el metodo ruleta, el cual lanza la exepcion si el numero elegido no sale en la ruleta
+
+c) Logramos crear una excepcion para el metodo coleccion_Numeros, el cual lanza la excepcion cuando se desea mostrar una posicion inexistente de la coleccion
+
+Ejercicio 9 de la guia de excepciones
+    Creacion de la clase excepcionDias
+
+Ejercicio 10 de la guia de excepciones
+    a) Definir e implementar las clases
+
+    b) implementar un metodo que genere una coleccion de productos vendidos. Disparar un excepcion cuando la fecha del producto es menor
+        a la fecha actual
+
+Ejercicio 11 de la guia de excepciones
+    Verdadero o Falso.
+    .) Un bloque try tiene que ser seguido por un catch y un finally. FALSO, no necesariamente tiene que existir un finally
+    .) Si escribe un metodo que podria causar una excepcion chequeada, 
+        debe encerrar el codigo de riesgo en un bloque try/catch. VERDADERO
+    .) Solo las excepciones chequeadas pueden ser capturadas. VERDADERO 
+    .) Si escribe un metodo que declara lanzar una excepcion chequeada por el compilador, se debe tambien 
+        envolver el codigo que lanza la excepcion en un try/catch.
+    .) Un bloque try puede existir por si mismo, sin un bloque catch o un bloque finally. VERDADERO
+    .) Un metodo con un bloque try y un bloque finally, puede opcionalmente declarar la excepcion.
+    .) Las excepciones de runtime deber ser manejadas o declaradas. DEBE SER MANEJADA NO DECLARADA 
+    
