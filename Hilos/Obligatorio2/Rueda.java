@@ -1,17 +1,26 @@
 package Hilos.Obligatorio2;
 
 public class Rueda {
-    
-    public synchronized void jugarEnRueda(){
-        System.out.println("El hamster "+ Thread.currentThread().getName()+" esta jugando en la rueda");
-        try{
-            Thread.sleep(2000);
-            
-        }catch(InterruptedException e){
+
+    private boolean enUso = false;
+
+    public synchronized boolean usar() { 
+        boolean exito = false;
+        
+        if (!this.enUso) {      
+            System.out.println("El hamster " + Thread.currentThread().getName() + " esta jugando en la rueda");
+            exito = true;
+            this.enUso = true;
             
         }
-        System.out.println("El hamster "+ Thread.currentThread().getName()+" termino de usar la rueda");
+        
+        return exito;
+        
     }
-    
+
+    public  void terminarJugar() {
+        this.enUso = false;
+        System.out.println("El hamster " + Thread.currentThread().getName() + " termino de usar la rueda");
+    }
 
 }

@@ -1,18 +1,27 @@
 package Hilos.Obligatorio2;
 
 
-
 public class Hamaca {
+
+    private boolean enUso = false;    
     
-    public synchronized void Hamacarse(){
-        System.out.println("El hamster "+ Thread.currentThread().getName()+" se esta hamacando");
-        try{
-            Thread.sleep(2000);
-            
-        }catch(InterruptedException e){
+    public synchronized boolean usar() { 
+        boolean exito = false;
+        
+        if (!this.enUso) {
+            System.out.println("El hamster " + Thread.currentThread().getName() + " se esta hamacando");
+            exito = true;
+            this.enUso = true;            
             
         }
-        System.out.println("El hamster "+ Thread.currentThread().getName()+" termino de hamacarse");
         
+        return exito;
+        
+    }
+    
+
+    public void terminarHamarcarse() {
+        this.enUso = false;
+        System.out.println("El hamster " + Thread.currentThread().getName() + " termino de hamacarse");
     }
 }

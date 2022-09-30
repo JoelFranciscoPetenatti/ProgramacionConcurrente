@@ -3,7 +3,7 @@ package Hilos.Obligatorio2;
 public class EjercicioHamster {
 
     public static void main(String[] args) {
-        int cantHamster = 4;
+        int cantHamster = 6;
 
         Hamaca hamaca = new Hamaca();
         Plato plato = new Plato();
@@ -19,18 +19,18 @@ public class EjercicioHamster {
         for (int i = 0; i < arreglo.length; i++) {
             try {
                 arreglo[i].join();
-            } catch (Exception e) {
-                System.out.println("ERROR");
+            } catch (InterruptedException ex) {
+                System.out.println("Error");
             }
         }
         System.out.println("Programa terminado");
     }
 
     public static void llenarArreglo(Hamster[] arreglo, Hamaca hamaca, Plato plato, Rueda rueda) {
+        String nombre;
         for (int i = 0; i < arreglo.length; i++) {
-            //nombre = "hamster" + i + 1;
-            arreglo[i] = new Hamster( hamaca, plato, rueda);
+            nombre = "hamster" + "-" + (i + 1);
+            arreglo[i] = new Hamster(nombre, hamaca, plato, rueda);
         }
     }
-
 }

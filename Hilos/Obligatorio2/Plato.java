@@ -2,15 +2,24 @@ package Hilos.Obligatorio2;
 
 public class Plato {
 
-    public synchronized void Comer(){
-        System.out.println("El hamster "+ Thread.currentThread().getName()+" esta comiendo");
-        try{
-            Thread.sleep(2000);
-            
-        }catch(InterruptedException e){
+    private boolean enUso = false;
+
+    public synchronized boolean usar() { 
+        boolean exito = false;
+        
+        if (!this.enUso) {          
+            System.out.println("El hamster " + Thread.currentThread().getName() + " esta comiendo");
+            exito = true;
+            this.enUso = true;           
             
         }
-        System.out.println("El hamster "+ Thread.currentThread().getName()+" termino de comer");
+        
+        return exito;
+        
     }
-    
+
+    public  void terminarComer() {
+        this.enUso = false;
+        System.out.println("El hamster " + Thread.currentThread().getName() + " termino de comer");
+    }
 }
